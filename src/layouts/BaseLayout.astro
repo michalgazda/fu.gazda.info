@@ -1,0 +1,77 @@
+---
+const links = [
+  { href: '/', label: 'Strona główna' },
+  { href: '/zakres-uslug/', label: 'Zakres usług' },
+  { href: '/galeria/', label: 'Galeria' },
+  { href: '/o-firmie/', label: 'O firmie' },
+  { href: '/kontakt/', label: 'Kontakt' },
+];
+const { title = 'Firma Wykończeniowa Andrzej Gazda' } = Astro.props;
+const canonical = new URL(Astro.url.pathname, Astro.site);
+---
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="generator" content={Astro.generator} />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9B%A7%EF%B8%8F</text></svg>" />
+  <title>{title}</title>
+  <link rel="canonical" href={canonical} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/global.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="/">
+        <span class="brand-mark">AG</span>
+        <span class="brand-text">
+          <strong>Andrzej Gazda</strong>
+          <small>Wykończanie i remonty wnętrz</small>
+        </span>
+      </a>
+      <nav class="site-nav" aria-label="Nawigacja główna">
+        {
+          links.map((l) => (
+            <a href={l.href} class:list={['nav-link', { active: Astro.url.pathname === l.href }]}>{l.label}</a>
+          ))
+        }
+      </nav>
+      <a class="nav-cta" href="tel:+48146762840">14 676 28 40</a>
+    </div>
+  </header>
+
+  <main>
+    <slot />
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <h4>Andrzej Gazda</h4>
+        <p>Firma Usługowa<br />Wykańczanie i Remonty Wnętrz</p>
+      </div>
+      <div>
+        <h4>Nawigacja</h4>
+        <ul>
+          <li><a href="/zakres-uslug/">Zakres usług</a></li>
+          <li><a href="/galeria/">Galeria</a></li>
+          <li><a href="/o-firmie/">O firmie</a></li>
+          <li><a href="/kontakt/">Kontakt</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Kontakt</h4>
+        <p>Telefon: <a href="tel:+48146762840">14 676 28 40</a><br />Region: Dębica i okolice</p>
+      </div>
+    </div>
+    <div class="wrap footer-bottom">
+      <p>© {new Date().getFullYear()} Andrzej Gazda — Wykończanie i remonty wnętrz. Wszelkie prawa zastrzeżone.</p>
+    </div>
+  </footer>
+</body>
+</html>
+

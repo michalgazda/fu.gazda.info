@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const gall = {
+  sufity: [
+    'sufit_podwieszany_marmur.JPG',
+    'sufit_podwieszany_5.JPG',
+    'sufit_podwieszany2.jpg',
+    'sufit_podwieszany1.jpg',
+    'image006.jpg',
+    'image004.jpg',
+    'image003.jpg',
+    'image002.jpg',
+  ],
+  sciany: [
+    'wzory_-_kuchnia%20(1).JPG',
+    'wz__r_na___cianie%20(1).JPG',
+    'stiuk2%20(1).jpg',
+    'stiuk1.jpg',
+    'specjalne_kszta__ty.jpg',
+    'stiuk.jpg',
+    'ozdobny_pas_glinka%20(1).JPG',
+    'modne_k__ty%20(1).JPG',
+    'image007%20(2).jpg',
+    'materia__y_natryskowe%20(1).jpg',
+    'image005%20(3).jpg',
+    'image012%20(1).jpg',
+    'image001%20(3).jpg',
+    'czerwona_glinka%20(1).jpg',
+    'glinka_wenecka%20(2).JPG',
+    'ciana%20(3).JPG',
+  ],
+  plytki: [
+    'p____ka_dream%20(1).jpg',
+    'p____ka_gipsowa_4.JPG',
+    'baldachim_z_p__yty_gipsowo_kartonowej.JPG',
+    'p____ka_gipsowa_1.JPG',
+    'p____ka_gipsowa_3.jpg',
+    'p____ka_gipsowa_2.jpg',
+  ],
+  podlogi: [
+    'parkiet_schodki.jpg',
+    'parkiet_3.jpg',
+    'parkiet_1.jpg',
+    'parkiet_2.jpg',
+  ],
+};
+const cats = [
+  { key: 'sufity', label: 'Sufity', items: gall.sufity },
+  { key: 'sciany', label: 'Ściany', items: gall.sciany },
+  { key: 'plytki', label: 'Płytki', items: gall.plytki },
+  { key: 'podlogi', label: 'Podłogi', items: gall.podlogi },
+];
+const all = Object.values(gall).flat();
+const imgPath = (f) => `/images/gallery/${f}`;
+---
+<BaseLayout title="Galeria realizacji — Andrzej Gazda Wykończanie i Remonty Wnętrz">
+  <section class="page-header">
+    <div class="wrap">
+      <h1>Galeria realizacji</h1>
+      <p style="color: rgba(255,255,255,0.8);">Nasze prace — sufity, ściany, płytki i podłogi</p>
+    </div>
+  </section>
+
+  <section class="page-content">
+    <div class="wrap">
+      <div class="gallery-tabs" id="tabs">
+        <button class="gallery-tab active" data-cat="all">Wszystkie</button>
+        {
+          cats.map((c) => (
+            <button class="gallery-tab" data-cat={c.key}>{c.label}</button>
+          ))
+        }
+      </div>
+      <div class="gallery-grid" id="grid">
+        {
+          all.map((f) => (
+            <a class="gallery-item" data-cat={cats.find((c) => c.items.includes(f))?.key} href={imgPath(f)} target="_blank">
+              <img src={imgPath(f)} alt="Realizacja — wykończenie wnętrz" loading="lazy" />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const tabs = document.querySelectorAll('#tabs .gallery-tab');
+    const grid = document.getElementById('grid');
+    const items = Array.from(grid.children);
+    tabs.forEach((tab) => {
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.classList.remove('active'));
+        tab.classList.add('active');
+        const cat = tab.dataset.cat;
+        items.forEach((it) => {
+          it.style.display = cat === 'all' || it.dataset.cat === cat ? '' : 'none';
+        });
+      });
+    });
+  </script>
+</BaseLayout>
