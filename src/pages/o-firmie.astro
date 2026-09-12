@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="O firmie — Andrzej Gazda Wykończanie i Remonty Wnętrz">
   <section class="page-header">
@@ -28,8 +29,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       </ul>
       <p>
         By zapoznać się z ofertą, prosimy wybrać odpowiednią pozycję menu oraz obejrzeć
-        <a href="/galeria/">galerię zdjęć</a>. Numer telefonu znajduje się w dziale
-        <a href="/kontakt/">kontakt</a>.
+        <a href={base + 'galeria/'}>galerię zdjęć</a>. Numer telefonu znajduje się w dziale
+                <a href={base + 'kontakt/'}>kontakt</a>.
       </p>
       <p>
         Zapraszam do korzystania z naszych usług,<br />

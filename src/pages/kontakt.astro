@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
 ---
 <BaseLayout title="Kontakt — Andrzej Gazda Wykończanie i Remonty Wnętrz">
   <section class="page-header">
@@ -47,7 +48,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
             w najwyższej jakości. Wystawiamy rachunki VAT.
           </p>
           <p style="margin-bottom:0;">
-            Serdecznie zapraszamy do kontaktu — <a href="/galeria/">zobacz nasze realizacje</a>.
+            Serdecznie zapraszamy do kontaktu — <a href={base + 'galeria/'}>zobacz nasze realizacje</a>.
           </p>
         </div>
       </div>
