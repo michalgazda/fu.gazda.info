@@ -6,9 +6,11 @@ const links = [
   { href: '/o-firmie/', label: 'O firmie' },
   { href: '/kontakt/', label: 'Kontakt' },
 ];
-const { title = 'Firma Wykończeniowa Andrzej Gazda' } = Astro.props;
+const { title = 'Firma Wykończeniowa Andrzej Gazda',
+        description = 'Firma Usługowa Wykańczanie i Remonty Wnętrz Andrzej Gazda — remonty i wykończenia mieszkań, domów i biur w rejonie Dębicy i okolic.' } = Astro.props;
 const base = import.meta.env.BASE_URL;
 const canonical = new URL(Astro.url.pathname, Astro.site);
+const origin = Astro.site.origin;
 ---
 <!DOCTYPE html>
 <html lang="pl">
@@ -18,7 +20,29 @@ const canonical = new URL(Astro.url.pathname, Astro.site);
   <meta name="generator" content={Astro.generator} />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>%F0%9F%9B%A7%EF%B8%8F</text></svg>" />
   <title>{title}</title>
+  <meta name="description" content={description} />
   <link rel="canonical" href={canonical} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Andrzej Gazda — Wykończanie i Remonty Wnętrz" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:url" content={canonical} />
+  <meta property="og:locale" content="pl_PL" />
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": ["LocalBusiness", "HomeAndConstructionBusiness"],
+    "name": "Andrzej Gazda — Wykończanie i Remonty Wnętrz",
+    "description": description,
+    "url": origin + base,
+    "telephone": "+48146762840",
+    "areaServed": "Dębica i okolice",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dębica", "addressRegion": "podkarpackie", "addressCountry": "PL" },
+    "priceRange": "$$",
+    "image": origin + base + "images/gallery/sufit_podwieszany2.jpg"
+  })} />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet" />

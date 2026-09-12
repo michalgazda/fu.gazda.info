@@ -53,8 +53,18 @@ const cats = [
 ];
 const all = Object.values(gall).flat();
 const imgPath = (f) => base + `images/gallery/${f}`;
+const altFor = (f) => {
+  const cat = cats.find((c) => c.items.includes(f));
+  const map = {
+    sufity: 'Sufit podwieszany — realizacja',
+    sciany: 'Tynk dekoracyjny na ścianie — stiuk lub glinka wenecka',
+    plytki: 'Okładzina z płyt gipsowo-kartonowych — realizacja',
+    podlogi: 'Parkiet lub schody — wykończenie podłóg',
+  };
+  return map[cat?.key] || 'Realizacja — wykończenie wnętrz';
+};
 ---
-<BaseLayout title="Galeria realizacji — Andrzej Gazda Wykończanie i Remonty Wnętrz">
+<BaseLayout title="Galeria realizacji — Andrzej Gazda Wykończanie i Remonty Wnętrz" description="Galeria zdjęć realizacji firmy wykończeniowej Andrzeja Gazdy: sufity podwieszane, ściany (stiuk, glinka wenecka), płytki i podłogi.">
   <section class="page-header">
     <div class="wrap">
       <h1>Galeria realizacji</h1>
@@ -76,7 +86,7 @@ const imgPath = (f) => base + `images/gallery/${f}`;
         {
           all.map((f) => (
             <a class="gallery-item" data-cat={cats.find((c) => c.items.includes(f))?.key} href={imgPath(f)} target="_blank">
-              <img src={imgPath(f)} alt="Realizacja — wykończenie wnętrz" loading="lazy" />
+              <img src={imgPath(f)} alt={altFor(f)} loading="lazy" />
             </a>
           ))
         }
