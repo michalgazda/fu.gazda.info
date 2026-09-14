@@ -1,8 +1,8 @@
 import { defineConfig } from 'astro/config';
 
 export default defineConfig({
-  site: 'https://michalgazda.github.io',
-  base: '/fu.gazda.info/',
+  site: 'https://fu.gazda.info',
+  base: '/',
   output: 'static',
   outDir: './dist',
 });

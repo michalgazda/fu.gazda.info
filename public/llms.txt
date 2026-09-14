@@ -4,11 +4,11 @@ Firma Usługowa Wykańczanie i Remonty Wnętrz Andrzej Gazda działa w rejonie D
 
 ## Strony
 
-- Strona główna: https://michalgazda.github.io/fu.gazda.info/ — przegląd usług, hero z galerią
-- Zakres usług: https://michalgazda.github.io/fu.gazda.info/zakres-uslug/ — pełna lista: parkiety, sufity podwieszane, stiuki, glinka wenecka, malowanie, płytki
-- Galeria: https://michalgazda.github.io/fu.gazda.info/galeria/ — zdjęcia realizacji (sufity, ściany, płytki, podłogi)
-- O firmie: https://michalgazda.github.io/fu.gazda.info/o-firmie/ — historia i informacje o firmie
-- Kontakt: https://michalgazda.github.io/fu.gazda.info/kontakt/ — telefon 14 676 28 40
+- Strona główna: https://fu.gazda.info/ — przegląd usług, hero z galerią
+- Zakres usług: https://fu.gazda.info/zakres-uslug/ — pełna lista: parkiety, sufity podwieszane, stiuki, glinka wenecka, malowanie, płytki
+- Galeria: https://fu.gazda.info/galeria/ — zdjęcia realizacji (sufity, ściany, płytki, podłogi)
+- O firmie: https://fu.gazda.info/o-firmie/ — historia i informacje o firmie
+- Kontakt: https://fu.gazda.info/kontakt/ — telefon 14 676 28 40
 
 ## Podstawowe informacje
 

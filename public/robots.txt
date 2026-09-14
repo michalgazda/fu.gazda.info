@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://michalgazda.github.io/fu.gazda.info/sitemap.xml
+Sitemap: https://fu.gazda.info/sitemap.xml
